@@ -1,0 +1,14 @@
+{
+  "common": {
+    "dns": "http://localhost:8080"
+  },
+  "session": {
+    "mongo": {
+      "uri": "mongodb://localhost:32780/auth",
+      "collection": "sessions"
+    },
+    "graphQL": {
+      "uri": "http://localhost:8082/graphql"
+    }
+  }
+}

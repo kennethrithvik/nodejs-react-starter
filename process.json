@@ -1,0 +1,11 @@
+{
+  "apps": [{
+    "script": "/app/server/bin/start",
+    "instances": 4,
+    "exec_mode": "cluster",
+    "env": {
+      "PORT": 8080,
+      "NODE_ENV": "production"
+    }
+  }]
+}
