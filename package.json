@@ -16,7 +16,7 @@
     "prod": "docker run -it -p 8080:8080 react-express-es6-starter:latest"
   },
   "keywords": [],
-  "author": "Rajat Pandit",
+  "author": "kennethrithvik",
   "license": "",
   "devDependencies": {
     "concurrently": "^3.4.0"
