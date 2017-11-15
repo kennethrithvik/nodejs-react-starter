@@ -42,10 +42,16 @@ app.use('/s', index);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
-  const err = new Error('Not Found');
-  err.status = 404;
-  next(err);
+  if (process.env.NODE_ENV === 'production') {
+    // serve index page to support react router in production.
+    res.sendFile(path.resolve(__dirname, '../client/build/index.html'));
+  } else {
+    const err = new Error('Not Found');
+    err.status = 404;
+    next(err);
+  }
 });
+
 // error handler
 /* eslint no-unused-vars: 0 */
 app.use((err, req, res, next) => {
