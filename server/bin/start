@@ -7,11 +7,13 @@
  * Module dependencies.
  */
 
-// enables ES6 ('import'.. etc) in Node
-require('babel-core/register');
-require('babel-polyfill');
+if (process.env.NODE_ENV !== 'production') {
+  // enables ES6 ('import'.. etc) in Node
+  require('babel-core/register');
+  require('babel-polyfill');
+}
 
-const app = require('../app').default;
+const app = require('../src/app').default;
 const debug = require('debug')('server:server');
 const http = require('http');
 

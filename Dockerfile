@@ -14,6 +14,9 @@ ADD ./client/build/ /app/client/build/
 RUN npm install pm2  -g
 RUN /bin/sh -c 'cd /app/server; npm install --production';
 
+#replace Transcompiled folder
+RUN /bin/sh -c 'cd /app/server; rm -rf src; mv temp src';
+
 # Define the environment variables
 
 #define ports to expose

@@ -35,7 +35,7 @@ app.use(bodyParser.urlencoded({
 
 if (process.env.NODE_ENV === 'production') {
   // Serve static assets
-  app.use(express.static(path.resolve(__dirname, '../client/build/')));
+  app.use(express.static(path.resolve(__dirname, '../../client/build/')));
 }
 
 app.use('/s', index);
@@ -44,7 +44,7 @@ app.use('/s', index);
 app.use((req, res, next) => {
   if (process.env.NODE_ENV === 'production') {
     // serve index page to support react router in production.
-    res.sendFile(path.resolve(__dirname, '../client/build/index.html'));
+    res.sendFile(path.resolve(__dirname, '../../client/build/index.html'));
   } else {
     const err = new Error('Not Found');
     err.status = 404;

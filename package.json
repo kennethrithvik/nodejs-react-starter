@@ -10,10 +10,11 @@
     "install-dependencies": "npm install; npm run server-install-dependencies; npm run client-install-dependencies",
     "server-install-dependencies": "cd ./server; npm install",
     "client-install-dependencies": "cd ./client; npm install",
-    "build-docker": "docker build --no-cache -t react-express-es6-starter:latest .",
-    "prebuild-docker": "cd client; npm install; REACT_APP_API_GRAPHQL_URL=http://localhost:8082/graphql npm run build",
+    "transcompile": "cd ./server; rm -rf temp; cp -rf src temp; babel -d ./temp ./temp -s",
+    "build-docker": "docker build --no-cache -t react-nodejs-starter:latest .;cd ./server; rm -rf temp",
+    "prebuild-docker": "npm run transcompile; cd client; npm install; REACT_APP_API_GRAPHQL_URL=http://localhost:8082/graphql npm run build",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "prod": "docker run -it -p 8080:8080 react-express-es6-starter:latest"
+    "prod": "docker run -it -p 8080:8080 react-nodejs-starter:latest"
   },
   "keywords": [],
   "author": "kennethrithvik",
