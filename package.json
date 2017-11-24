@@ -6,13 +6,13 @@
   "scripts": {
     "start": "concurrently \"npm run server\" \"npm run client\"",
     "server": "cd ./server; PORT=8081 npm start",
-    "client": "cd ./client; REACT_APP_API_GRAPHQL_URL=http://localhost:8082/graphql PORT=8080 npm start",
+    "client": "cd ./client; PORT=8080 npm start",
     "install-dependencies": "npm install; npm run server-install-dependencies; npm run client-install-dependencies",
     "server-install-dependencies": "cd ./server; npm install",
     "client-install-dependencies": "cd ./client; npm install",
     "transcompile": "cd ./server; rm -rf temp; cp -rf src temp; babel -d ./temp ./temp -s",
     "build-docker": "docker build --no-cache -t react-nodejs-starter:latest .;cd ./server; rm -rf temp",
-    "prebuild-docker": "npm run transcompile; cd client; npm install; REACT_APP_API_GRAPHQL_URL=http://localhost:8082/graphql npm run build",
+    "prebuild-docker": "npm run transcompile; cd client; npm install; npm run build",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "prod": "docker run -it -p 8080:8080 react-nodejs-starter:latest"
   },
